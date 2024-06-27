@@ -1,0 +1,11 @@
+const express=require('express')
+const studentController=require('../controllers/studentController')
+const router=express.Router()
+router.post('/add-student',studentController.addstudent)
+router.get('/show-student',studentController.showstudent)
+router.get('/view-student/:_id',studentController.viewstudent)
+router.get('/edit-student/:_id',studentController.editstudent)
+router.post('/update-student',studentController.updatestudent)
+ router.post('/delete-student/:_id',studentController.deletestudent)
+ router.post('/search-student',studentController.searchstudent)
+module.exports=router

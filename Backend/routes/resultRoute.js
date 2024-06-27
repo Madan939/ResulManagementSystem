@@ -1,0 +1,11 @@
+const express=require('express')
+const resultController=require('../controllers/resultController')
+const router=express.Router()
+router.post('/add-result',resultController.addresult)
+router.get('/show-result',resultController.showresult)
+router.get('/view-result/:_id',resultController.viewresult)
+router.post('/search-result',resultController.searchresult)
+router.get('/edit-result/:_id',resultController.editresult)
+router.post('/update-result',resultController.updateresult)
+ router.post('/delete-result/:_id',resultController.deleteresult)
+module.exports=router

@@ -1,0 +1,1 @@
+export const APIROUTE = 'http://localhost:8000/api/'

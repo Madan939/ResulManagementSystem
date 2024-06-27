@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav-component:hover{
+color: rgb(88, 25, 25) !important;
+}
+.sidebar:hover{
+background-color: #e0e2e6;
+}
+.sidebar{
+  width:100%;
+  padding: 6px;
+}
+.sidebar-link{
+  color: black !important;
+  text-decoration: none;
+}
+.item-border{
+  border:1px solid rgb(1, 1, 1);
+}
+.selected-item-border{
+  border:2px solid black;
+}
+.student-table{
+  font-size: 15px;
+}
+.notice-board{
+  box-sizing: border-box;
+}
+.result-paragraph{
+  color:rgb(34, 34, 127);
+}
+.result-paragraph i{
+  color:black;
+}
+.result-table-head th{
+  font-size: 13px;
+  color:rgb(34, 34, 127) !important;
+}
+.gpa{
+  color:rgb(34, 34, 127) !important;
+}
+.result{
+  font-size: 12px;
+}
+/* .side{
+  position:sticky;
+  top:3rem;
+}
+header{
+  position: sticky;
+  top:0
+} */
