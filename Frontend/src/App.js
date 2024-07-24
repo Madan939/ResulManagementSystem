@@ -1,5 +1,5 @@
 import './App.css';
-import Footer from './pages/Footer';
+// import Footer from './pages/Footer';
 import Header from './pages/Header';
 import MyRoute from './routes/MyRoute';
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <>
     <Header/>
     <MyRoute/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   );
 }

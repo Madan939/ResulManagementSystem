@@ -15,16 +15,17 @@ const Notices = () => {
     }
   }
   useEffect(() => {
-    if (localStorage.getItem('Admin')) {
-      navigate("/admin/admin-homepage")
-    }
+    // if (localStorage.getItem('Admin')) {
+    //   navigate("/admin/admin-homepage")
+    // }
     getAllNotice()
   },[])
 
   return (
     <>
       <div className='container-fluid'>
-        <p className='m-3 text-center'>Notices</p>
+        <p className='h1 text-primary text-center'>Coming soon... </p>
+        {/* <p className='m-3 text-center'>Notices</p>
         {getnotice && getnotice.length > 0 ? (
           <>
             {getnotice && getnotice.map((list) => (
@@ -49,7 +50,7 @@ const Notices = () => {
 
         ) : (
           <p className='text-center h1'>Nothing to show</p>
-        )}
+        )} */}
       </div>
     </>
   )

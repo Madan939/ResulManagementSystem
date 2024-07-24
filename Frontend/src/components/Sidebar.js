@@ -4,9 +4,9 @@ const Sidebar = () => {
    const navigate=useNavigate()
     return (
         <>
-            <div className='side container-fluid border'>
+            <div className='side container-fluid border' style={{height:"100vh"}}>
                 <div className='sidebar '>    
-                    <Link className='sidebar-link p-1' to="/admin/admin-homepage">
+                    <Link className='sidebar-link p-1' to="/">
                     <i className="fa-solid fa-house p-1"></i>Home
                     </Link>
                 </div>
@@ -24,6 +24,9 @@ const Sidebar = () => {
                 </div>
                 <div className='sidebar'>                    
                     <Link className='sidebar-link p-1' to="/admin/add-subject"><i className="fa-solid fa-plus p-1"></i>Add-Subject</Link>
+                </div>
+                <div className='sidebar'>                    
+                    <Link className='sidebar-link p-1' to="/access"><i className="fa-solid fa-plus p-1"></i>Access</Link>
                 </div>
                 <div className='sidebar 'onClick={() => {
                     localStorage.removeItem('Admin')

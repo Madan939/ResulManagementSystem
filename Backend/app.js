@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const dbconnect=require('./utils/database')
 const AdminRoute=require('./routes/adminRoute')
@@ -16,7 +17,7 @@ app.use('/api/semester',SemesterRoute)
 app.use('/api/notice',NoticeRoute)
 app.use('/api/student',StudentRoute)
  app.use('/api/result',ResultRoute)
-const port=8000
+const port=process.env.PORT||8000
 app.listen(port,()=>{
   console.log(`server is running in ${port}`)
 })

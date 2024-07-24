@@ -28,7 +28,7 @@ const Facsub = () => {
         <div className='container'>
         {semesterList && semesterList.length > 0 ? (
                 <>
-                    <p className='h-4 m-3'>Choose Faculty:</p>
+                    <p className='h-4 m-3'>Faculty:</p>
                     <div className='container d-flex gap-3 my-3 '>
                         {list && list.map((item) => (
                             <div key={item.id} onClick={() => setCategory(item.coursename)} className={` item-border d-flex text-center gap-2 ps-3 btn btn-secondary btn-sm ${category === item.coursename && 'selected-item-border'}`} >
