@@ -1,7 +1,7 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { APIROUTE } from '../../components/Commonroute'
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 const Adminregister = () => {
     const [uname, setuname] = useState('')
@@ -11,7 +11,7 @@ const Adminregister = () => {
     const navigate = useNavigate()
     function loginform(e) {
         e.preventDefault()
-        if(Cpassword!=password){
+        if (Cpassword !== password) {
             alert("password didn;t match")
             return
         }
@@ -30,16 +30,11 @@ const Adminregister = () => {
                 console.log(err)
             })
     }
-    useEffect(()=>{
-        if(localStorage.getItem('Admin')){
-            navigate("/admin/admin-homepage")
-        }
-        
-    },[]) 
-  return (
-    <>
-      <div className='w-25 m-auto border container my-3'>
+    return (
+        <>
+            <div className='login-form m-auto border container my-3 shadow'>
                 <form className='p-2' onSubmit={loginform} >
+                    <p className='text-center text-success my-3 h4'>Create new account</p>
                     <div className="form-floating mb-3">
                         <input type="text" className="form-control" id="floatingInputuname" placeholder='' onChange={(e) => setuname(e.target.value)} value={uname} />
                         <label htmlFor="floatingInputuname">Username</label>
@@ -56,16 +51,16 @@ const Adminregister = () => {
                         <input type="password" className="form-control" id="floatingPass" placeholder='' onChange={(e) => setCpassword(e.target.value)} value={Cpassword} />
                         <label htmlFor="floatingPass">Confirm Password</label>
                     </div>
-                    <div className=''>
-                        <input type='submit' value="Register" className='btn btn-primary mx-1 w-100' />
-                        <hr/>
-                        <Link className='mx-1 btn btn-success w-100' to="/adminlogin">Back to Log In</Link>
-                    </div>
+                   
+                    <div className='d-flex flex-column align-items-center justify-content-center'>
+                            <input type='submit' className='w-50 btn btn-success mb-2' value="Register" />
+                            <Link to="/adminlogin" className='h6 text-primary'>Already have an account?</Link>
+                        </div>
 
                 </form>
             </div>
-    </>
-  )
+        </>
+    )
 }
 
 export default Adminregister

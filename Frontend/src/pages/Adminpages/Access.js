@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { APIROUTE } from '../../components/Commonroute';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import Sidebar from '../../components/Sidebar';
 
 const Access = () => {
     const login = JSON.parse(localStorage.getItem("Admin"));
@@ -58,12 +57,8 @@ const Access = () => {
     
     return (
         <>
-            <div className="row container-fluid border">
-                <div className="col-3 mt-2 border list-group">
-                    <Sidebar />
-                </div>
-                <div className="col-9 mt-2">
-                    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
+            <div className=" container-fluid border">
+                <div className=" mt-2">        
                     <table className='table table-bordered align-middle text-center'>
             <thead>
               <tr>
@@ -98,7 +93,7 @@ const Access = () => {
           </table>
                     </div>
                 </div>
-            </div>
+            
         </>
     )
 }

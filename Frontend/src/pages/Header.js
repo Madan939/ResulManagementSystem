@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 const Header = () => {
     const login = JSON.parse(localStorage.getItem('Admin'));
-    const navigate=useNavigate();
     // console.log(admin)
+    function logout(){
+        alert("Are you sure you want to log out?")
+        localStorage.removeItem("Admin")
+        window.location.reload()
+    }
     return (
         <header>
             {login ? (
@@ -23,13 +27,13 @@ const Header = () => {
                                             <NavLink to="/admin/show-result" className='nav-component text-dark text-decoration-none'>Results</NavLink>
                                         </div>
                                         <div className='p-2'>
-                                            <NavLink to="/admin/schoolarships-details" className='nav-component text-dark text-decoration-none'>Schoolarship-froms</NavLink>
-                                        </div>
-                                        <div className='p-2'>
                                             <NavLink to="/admin/semesterlist" className='nav-component text-dark text-decoration-none'>Subjects</NavLink>
                                         </div>
                                         <div className='p-2'>
                                             <NavLink to="/admin/studentlist" className='nav-component text-dark text-decoration-none'>Students</NavLink>
+                                        </div>
+                                        <div className='p-2'>
+                                            <NavLink to="/admin/schoolarships-details" className='nav-component text-dark text-decoration-none'>Schoolarship-froms</NavLink>
                                         </div>
                                     </div>
 
@@ -37,38 +41,49 @@ const Header = () => {
 
                             </>
                         ) : (
-                            <div className='container-fluid bg-body-secondary d-flex justify-content-between'>
-                                <div className=''>
-                                    <div className='container-fluid m-1 align-middle'>{login.User.name}</div>
-                                </div>
-                                <div className='d-flex'>
-                                    <div className='p-2'>
-                                        <NavLink to="/" className='nav-component text-dark text-decoration-none'>Results</NavLink>
-                                    </div>
-                                    <div className='p-2'>
-                                        <NavLink to="/fac-sub" className='nav-component text-dark text-decoration-none'>Syllabus</NavLink>
-                                    </div>
-                                    <div className='p-2'>
-                                        <NavLink to="/notices" className='nav-component text-dark text-decoration-none'>Notices</NavLink>
-                                    </div>
-                                    <div className='p-2'>
-                                        <NavLink to="/schoolarships" className='nav-component text-dark text-decoration-none'>Registration Form</NavLink>
-                                    </div>
-                                    <div className='p-2' onClick={() => {
-                                        localStorage.removeItem('Admin')
-                                        navigate("/")
-                                        window.location.reload()
-                                    }}>
-                                        <Link className='nav-component text-dark text-decoration-none'>Log out</Link>
-                                    </div>
-                                </div>
-                                <div className='d-flex'>
-                                    <p className='p-1'>Follow us on:</p>
-                                    <p className='p-1'><i className="fab fa-facebook-f" style={{ color: "#3B5998" }}></i></p>
-                                    <p className='p-1'><i className="fab fa-instagram" style={{ color: "purple" }}></i></p>
-                                    <p className='p-1'><i className="fab fa-tiktok"></i></p>
-                                </div>
+                            <header className='d-flex bg-primary p-3 align-items-center justify-content-between'>
+                            <div className='d-flex  justify-content-center align-items-center'>
+                                <p className='h2 mx-2'><i className="grad fa-solid  fa-graduation-cap fa-lg text-light"></i></p>
+                                <p className='h2 text-light'>EDS</p>
                             </div>
+                            <div className='d-flex '>
+                                <div className='h5 mx-2'><Link className='text-light text-decoration-none' to="/">Results</Link></div>
+                                <div className='h5 mx-2'><Link className='text-light text-decoration-none' to="/fac-sub">Faculty</Link></div>
+                                <div className='h5 mx-2'><Link className='text-light text-decoration-none' to="/notices">Notices</Link></div>
+                                <div className='h5 mx-2'><Link className='text-light text-decoration-none' to="/schoolarships">Registration Form</Link></div>
+                                <div className='h5 mx-2'><Link className='text-light text-decoration-none' to="/schoolarships">Schoolarships Form</Link></div>
+                            </div>
+                            <div className='header-nav2  text-light d-flex'>
+                                    <button className="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                        <i className="fa-solid fa-bars fa-xl text-light"></i>
+                                    </button>
+                                    <div className="offcanvas-1 offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                        <div className="mt-2 d-flex justify-content-between">
+                                            <p className='w-25'>
+                                                <button type="button" className="btn btn-light" data-bs-dismiss="offcanvas" aria-label="Close">
+                                                    <i class="fa-solid fa-arrow-left fa-lg text-secondary"></i>
+                                                </button>
+                                            </p>
+                                            <p className='w-75 text-center h2 text-primary'>
+                                                {login.User.name}
+                                            </p>
+                                        </div>
+                                        <hr/>
+                                        <div className="users-offcanvas">
+                                        <div className='px-3'>Profile</div>
+                                        <div className='px-3'>Account Centre</div>
+                                        <div className='px-3'>Your Form</div>
+                                        <div className='px-3'>Academic Information</div>
+                                        <div className='px-3'>Reports</div>
+                                        <div className='px-3'>Help</div>
+                                        <div className='px-3'>Privacy Centre</div>
+                                        <div className='px-3'>Account Status</div>
+                                        <div className='px-3' onClick={logout}>Log Out</div>
+                                        </div>
+                                    </div>
+                             
+                            </div>
+                        </header>
                         )
                     }
                 </>

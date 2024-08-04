@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../components/Sidebar';
 import { APIROUTE } from '../../components/Commonroute';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -55,11 +54,8 @@ const Addsubject = () => {
 
   return (
     <>
-      <div className="row container-fluid border">
-        <div className="col-3 mt-2 border list-group">
-          <Sidebar />
-        </div>
-        <div className="col-9 mt-2">
+      <div className=" container-fluid border">
+        <div className=" mt-2">
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
             <br />
             <p className='h6 text-center'>You can add course, semester/year, and subjects by fulfilling the form below:</p>

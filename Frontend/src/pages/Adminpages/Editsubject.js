@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../components/Sidebar';
 import axios from 'axios';
 import { APIROUTE } from '../../components/Commonroute';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -72,11 +71,8 @@ const Editsubject = () => {
   };
 
   return (
-    <div className="row container-fluid border">
-      <div className="col-3 mt-2 border list-group">
-        <Sidebar />
-      </div>
-      <div className="col-9 mt-2">
+    <div className=" container-fluid border">
+      <div className=" mt-2">
         <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
           <div className='w-75 border m-auto'>
             <form onSubmit={handleSubmit}>

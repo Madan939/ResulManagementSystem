@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { APIROUTE } from '../../components/Commonroute'
 const Adminlogin = () => {
@@ -16,25 +16,19 @@ const Adminlogin = () => {
         axios.post(`${APIROUTE}admin/adminLogin`, data)
             .then((res) => {
                 console.log(res.data)
-                localStorage.setItem('Admin',JSON.stringify(res.data))
-                  navigate("/")
-                 window.location.reload()
+                localStorage.setItem('Admin', JSON.stringify(res.data))
+                navigate("/")
+                window.location.reload()
             })
             .catch(err => {
-                //alert("email and password didn't match")
+                alert("email and password didn't match")
                 console.log(err)
             })
 
     }
-    useEffect(() => {
-        if (localStorage.getItem('Admin')) {
-            navigate("/admin/admin-homepage")
-        }
-
-    }, [])
     return (
         <>
-            <div className='w-25 m-auto border container my-3'>
+            <div className='login-form m-auto border container my-3 shadow'>
                 <p className='h2 text-primary text-center' >Login Form</p>
                 <form className='p-2' onSubmit={loginform} >
                     <div className="form-floating mb-3">
@@ -45,15 +39,24 @@ const Adminlogin = () => {
                         <input type="password" className="form-control" id="floatingPrice" placeholder='' onChange={(e) => setpassword(e.target.value)} value={password} />
                         <label htmlFor="floatingPrice">Password</label>
                     </div>
-                    <hr/>
-                    <div className=''>
+                    <hr />
+                    {/* <div className=''>
                         <input type='submit' value="Login" className='btn btn-primary my-1 w-100' />
                         <hr/>
                         <Link to="/forgotpassword">forgot password?</Link>
                         <hr/>
                         <Link className='my-1 w-100 btn btn-success' to="/adminsignup">Register</Link>
+                    </div> */}
+                    <div className='d-flex flex-column align-items-center justify-content-center'>
+                        <input type='submit' className='w-100 btn btn-primary mb-2' value="Log In" />
+                        <p className=''>
+                            <Link to="/forgotpassword">forgot password?</Link>
+                        </p>
                     </div>
-
+                    <hr />
+                    <div className='d-flex align-items-center justify-content-center'>
+                        <Link to="/adminsignup" className='btn btn-success align-items-center  justify-content-center'>Create new Account</Link>
+                    </div>
                 </form>
             </div>
         </>

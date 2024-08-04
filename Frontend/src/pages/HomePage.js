@@ -1,18 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React, {  useRef, useState } from 'react'
+import { Link} from 'react-router-dom';
 import { APIROUTE } from '../components/Commonroute';
-import Sidebar from '../components/Sidebar';
 import { useReactToPrint } from 'react-to-print';
 
 const HomePage = () => {
     const login = JSON.parse(localStorage.getItem('Admin'));
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (!login) {
-            navigate('/adminlogin')
-        }
-    }, [])
     const [sname, setname] = useState('')
     const [student, setstudent] = useState([])
     function subform1(e) {
@@ -78,11 +71,8 @@ const HomePage = () => {
         <>
             {login.User.role === "admin" ? (
                 <>
-                    <div className="row container-fluid border my-2">
-                        <div className="col-3 mt-2 border list-group">
-                            <Sidebar />
-                        </div>
-                        <div className="col-9 mt-2 " style={{ height: "100vh" }}>
+                    <div className=" container-fluid border my-2">
+                        <div className=" mt-2 " style={{ height: "100vh" }}>
                             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
                                 <form className="d-flex" role="search" onSubmit={subform1}>
                                     <input className="form-control me-2" type="search" placeholder="Search students" aria-label="Search" onChange={(e) => setname(e.target.value)} value={sname} />
@@ -141,6 +131,8 @@ const HomePage = () => {
           </div>
         </form>
         {result && result._id ? (
+          
+         <>
           <div className='result my-3 container-fluid border w-75 m-auto'>
             <p className='result-paragraph h5 text-center m-4'>Examination Board</p>
             <p className='result-paragraph h3 text-center m-3'>GRADE SHEET</p><br />
@@ -263,6 +255,7 @@ const HomePage = () => {
         </div>
       )}
           </div>
+         </>
         ) : (
           <p></p>
         )}

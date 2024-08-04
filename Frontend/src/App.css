@@ -53,3 +53,47 @@ header{
   position: sticky;
   top:0
 } */
+ .login-form{
+  width:40%;
+ }
+ 
+.rowsidebar {
+  display: flex;
+  height: 100vh;
+}
+.sidebar-container {
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.content-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header-container, .route-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.full-height {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.offcanvas-1{
+  width:300px !important;
+}
+.users-offcanvas div{
+  margin-top: 4px;
+  margin-bottom: 3px;
+}
+.users-offcanvas div:hover{
+  background-color: rgb(201, 198, 198);
+}

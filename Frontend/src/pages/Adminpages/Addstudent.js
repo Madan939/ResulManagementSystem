@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from '../../components/Sidebar'
+
 import axios from 'axios'
 import {toast} from 'react-toastify'
 import { APIROUTE } from '../../components/Commonroute'
@@ -54,11 +54,9 @@ const Addstudent = () => {
     //console.log(courselist)
     return (
         <>
-            <div className="row container-fluid border">
-                <div className="col-3 mt-2 border list-group">
-                    <Sidebar />
-                </div>
-                <div className="col-9 mt-2 ">
+            <div className="container-fluid border">
+               
+                <div className=" mt-2 ">
                     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
                         <p className='text-center p-3 '> Add a student by fullfilling the form below:</p>
                         <div className='w-75 m-auto border'>

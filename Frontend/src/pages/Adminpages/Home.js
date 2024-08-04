@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Sidebar from '../../components/Sidebar'
 import axios from 'axios'
 import { APIROUTE } from '../../components/Commonroute'
 import { Link } from 'react-router-dom'
@@ -25,11 +24,8 @@ const Home = () => {
   console.log(student)
   return (
     <>
-      <div className="row container-fluid border my-2">
-        <div className="col-3 mt-2 border list-group">
-          <Sidebar />
-        </div>
-        <div className="col-9 mt-2 " style={{ height: "100vh" }}>
+      <div className=" container-fluid border my-2">
+        <div className=" mt-2 " style={{ height: "100vh" }}>
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
             <form className="d-flex" role="search" onSubmit={subform}>
               <input className="form-control me-2" type="search" placeholder="Search students" aria-label="Search" onChange={(e)=>setname(e.target.value)} value={sname}/>

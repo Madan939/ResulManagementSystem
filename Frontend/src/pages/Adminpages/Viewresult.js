@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../components/Sidebar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { APIROUTE } from '../../components/Commonroute';
 import axios from 'axios';
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 const Viewresult = () => {
     const [result, setresult] = useState([]);
     const { _id } = useParams();
-const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         if (_id) {
             axios.get(`${APIROUTE}result/view-result/${_id}`)
@@ -52,11 +51,9 @@ const navigate=useNavigate();
     };
     return (
         <>
-            <div className="row container-fluid border">
-                <div className="col-3 mt-2 border list-group">
-                    <Sidebar />
-                </div>
-                <div className="col-9 mt-2 ">
+            <div className="container-fluid border">
+
+                <div className=" mt-2 ">
                     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" className="scrollspy-example" tabIndex="0">
 
                         <div className='result m-3 container-fluid border'>
@@ -107,7 +104,7 @@ const navigate=useNavigate();
                                 <p className='result-paragraph'> TH:Theory,PR:Practical</p>
                             </div>
                             <br />
-                        
+
                             <p className='btn btn-primary btn-sm'>
                                 <Link to={`/admin/edit-result/${_id}`} className='text-light text-decoration-none'>Edit</Link>
                             </p>
